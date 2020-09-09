@@ -84,14 +84,30 @@ class penanaman extends CI_Controller
     }
 
     //Update one item
-    public function update($id = NULL)
+    public function update()
     {
+        $data = [
+
+            'tgl_tanam' => $this->input->post('tgl_tanam'),
+            'perkiraan_tgl_panen' => $this->input->post('perkiraan_tgl_panen'),
+            'jumlah_tanam' => $this->input->post('jumlah_tanam'),
+            'jumlah_panen' => $this->input->post('jumlah_panen'),
+            'status_penanaman' => $this->input->post('status_penanaman'),
+            'realisasi_panen' => $this->input->post('realisasi_panen'),
+            'kebutuhan' => $this->input->post('kebutuhan'),
+            'estimasi_biaya' => $this->input->post('estimasi_biaya'),
+            'realisasi_kebutuhan' => $this->input->post('realisasi_kebutuhan'),
+        ];
+        $id = $this->input->post('id');
+        $edit = $this->tanaman->edit($data, $id);
+        echo json_encode($edit);
     }
 
     //Delete one item
     public function delete($id = NULL)
     {
+        $id = $this->input->get('id');
+        $hapus = $this->tanaman->delete($id);
+        echo json_encode($hapus);
     }
 }
-
-/* End of file Controllername.php */

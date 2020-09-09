@@ -1,4 +1,4 @@
-<div class="main-panel scr" >
+<div class="main-panel scr">
 	<div class="content">
 		<div class="page-inner" style="margin-top: 60px;">
 			<div class="row">
@@ -64,13 +64,13 @@
 						<div class="form-group col-md-12">
 							<label>No Sk Portan</label>
 							<input disabled="true" type="text" class="form-control kmk" name="no_sk_portan" placeholder="no_sk_portan" aria-label="no_sk_portan">
-							
+
 						</div>
 						<div class="form-group col-md-12">
 							<label>Nama Portan</label>
-							
-								<input disabled="true" type="text" class="form-control kmk" name="nama_portan" placeholder="nama_portan" aria-label="nama_portan">
-							
+
+							<input disabled="true" type="text" class="form-control kmk" name="nama_portan" placeholder="nama_portan" aria-label="nama_portan">
+
 						</div>
 						<div class="form-group col-md-12">
 							<label>Tanggal Berdiri</label>
@@ -95,24 +95,24 @@
 	</div>
 </div>
 
-<?php $this->load->view('include/script');?>
+<?php $this->load->view('include/script'); ?>
 <script>
-	let url="<?= base_url()?>/kelompok_tani/getData";
-	table = get(url,null);
+	let url = "<?= base_url() ?>/kelompok_tani/getData";
+	table = get(url, null);
 
 
-	$('tbody').on('click', '.edit', function () {
+	$('tbody').on('click', '.edit', function() {
 		let data = table.row($(this).parents('tr')).data();
 		let id = data[0];
-		
+
 		$('#my-modal [name="id"]').val(data[0]);
 		$('#my-modal [name="no_sk_portan"]').val(data[2]);
 		$('#my-modal [name="nama_portan"]').val(data[3]);
 		$('#my-modal [name="tanggal_berdiri"]').val(data[4]);
 		$('#my-modal [name="jumlah_anggota"]').val(data[5]);
 		$('#my-modal [name="status"]').val(data[6]);
-		
-	
+
+
 		$('#my-modal').modal({
 			keyboard: false,
 			backdrop: 'static',
@@ -121,35 +121,35 @@
 
 	});
 
-	$('tbody').on('click', '.hapus', function () {
+	$('tbody').on('click', '.hapus', function() {
 		let data = table.row($(this).parents('tr')).data();
 		let id = data[0];
-		var url2 = "<?= base_url()?>/kelompok_tani/delete";
+		var url2 = "<?= base_url() ?>/kelompok_tani/delete";
 		hapus(url2, id);
 		table.ajax.reload();
 
 
 	});
 
-	$(document).ready(function () {
-	$('#myform').on('submit',  function(e){  
-	    e.preventDefault();
-	    url1="<?= base_url()?>/kelompok_tani/update";
-		let data ={
-			id: $('#my-modal [name="id"]').val(),
-			no_sk_poktan: $('#my-modal [name="no_sk_poktan"]').val(),
-			nama_poktan: $('#my-modal [name="nama_poktan"]').val(),
-			tanggal_berdiri: $('#my-modal [name="tanggal_berdiri"]').val(),
-			jumlah_anggota: $('#my-modal [name="jumlah_anggota"]').val(),
-			status: $('#my-modal [name="status"]').val(),
-			
-		};
-		post(url1, data);
-		table.ajax.reload();
-	    $('#myform').trigger("reset");
-    	$('#my-modal').modal('hide');                             
-	            
-	  });
+	$(document).ready(function() {
+		$('#myform').on('submit', function(e) {
+			e.preventDefault();
+			url1 = "<?= base_url() ?>/kelompok_tani/update";
+			let data = {
+				id: $('#my-modal [name="id"]').val(),
+				no_sk_poktan: $('#my-modal [name="no_sk_poktan"]').val(),
+				nama_poktan: $('#my-modal [name="nama_poktan"]').val(),
+				tanggal_berdiri: $('#my-modal [name="tanggal_berdiri"]').val(),
+				jumlah_anggota: $('#my-modal [name="jumlah_anggota"]').val(),
+				status: $('#my-modal [name="status"]').val(),
+
+			};
+			post(url1, data);
+			table.ajax.reload();
+			$('#myform').trigger("reset");
+			$('#my-modal').modal('hide');
+
+		});
 
 
 	});

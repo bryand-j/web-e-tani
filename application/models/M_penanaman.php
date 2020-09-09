@@ -41,4 +41,43 @@ class M_penanaman extends CI_Model
         $this->db->order_by('tgl_tanam', 'DESC');
         return $this->db->get();
     }
+    public function edit($data, $id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('penanaman', $data);
+
+        $isUpdate = $this->db->affected_rows();
+        if ($isUpdate > 0) {
+            $message = array(
+                'type' => 'success',
+                'text' => 'Data Berhasil Di Edit'
+            );
+            return $message;
+        } else {
+            $message = array(
+                'type' => 'error',
+                'text' => 'Tidak Ada Perubahan Data'
+            );
+            return $message;
+        }
+    }
+    public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('penanaman');
+        $isDelete = $this->db->affected_rows();
+        if ($isDelete > 0) {
+            $message = array(
+                'type' => 'success',
+                'text' => 'Data Berhasil Di Hapus'
+            );
+            return $message;
+        } else {
+            $message = array(
+                'type' => 'error',
+                'text' => 'Data Gagal Di Hapus'
+            );
+            return $message;
+        }
+    }
 }
