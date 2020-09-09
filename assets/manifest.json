@@ -1,0 +1,24 @@
+{
+  "short_name": "KHS Elektro",
+  "name": "App KHS Elektro",
+  "icons": [{
+      "src": "icn.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/ta",
+  "display": "standalone",
+  "theme_color": "#0d59ba",
+  "background_color": "#0d59ba"
+}
