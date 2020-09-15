@@ -4,9 +4,22 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
-						<div class="card-header">
-							<div class="d-flex align-items-center">
+						<div class="card-header row">
+							<div class="d-flex align-items-center ml-3 ">
 								<h4 class="card-title">Penanaman</h4>
+
+							</div>
+							<div class="ml-auto d-flex flex-row">
+
+								<select class="form-control mr-3 input-solid" id="tahun">
+									<?php
+									$tahun = date('Y');
+									for ($i = $tahun; $i > 2015; $i--) : ?>
+										<option value="<?= $i ?>"><?= 'Tahun ' . $i ?></option>
+									<?php endfor; ?>
+
+								</select>
+								<button class="mr-5 btn btn-primary btn-round cetak">Cetak Laporan</button>
 							</div>
 						</div>
 						<div class="card-body">
@@ -67,7 +80,6 @@
 						<div class="form-group col-md-12">
 							<label>Kelompok Tani</label>
 							<input type="text" class="form-control txt" name="poktan" readonly placeholder="Masukan Nama Elemen">
-
 						</div>
 						<div class="form-group col-md-12">
 							<label>Nama Tanaman</label>
@@ -99,7 +111,8 @@
 						</div>
 						<div class="form-group col-md-12">
 							<label>Kebutuhan</label>
-							<input type="text" class="form-control txt" name="kebutuhan">
+							<textarea class="form-control txt" style="margin-top: 0px; margin-bottom: 0px; height: 140px;" rows="5" name="kebutuhan">
+							</textarea>
 						</div>
 						<div class="form-group col-md-12">
 							<label>Estimasi Biaya</label>
@@ -161,6 +174,21 @@
 		table.ajax.reload();
 		$('#myform').trigger("reset");
 		$('#my-modal').modal('hide');
+
+	});
+
+
+	$('tbody').on('click', '.hapus', function() {
+		let data = table.row($(this).parents('tr')).data();
+		let id = data[0];
+		var url2 = "<?= base_url() ?>/penanaman/delete";
+		hapus(url2, id);
+		table.ajax.reload();
+	});
+	$('.cetak').click(function(e) {
+
+		let tahun = $('#tahun').val();
+		$('#pdf').attr('src', '<?= base_url() ?>penanaman/report?tahun=' + tahun);
 
 	});
 </script>

@@ -23,7 +23,7 @@ class M_penyuluh extends CI_Model
 		} else {
 			$message = array(
 				'type' => 'error',
-				'text' => 'Data Gagal Di Edit'
+				'text' => 'Data Tidak Berubah'
 			);
 			return $message;
 		}

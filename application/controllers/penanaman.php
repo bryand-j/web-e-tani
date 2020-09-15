@@ -61,7 +61,7 @@ class penanaman extends CI_Controller
             $row[] = $key->estimasi_biaya;
             $row[] = $key->realisasi_kebutuhan;
             $row[] = '<img height="100" width="100" src="' . base_url() . 'assets/doc/' . $key->foto . '" >';
-            $row[] = $key->lokasi;
+            $row[] = $this->lokasi($key->lokasi);
             $row[] = '<div class="d-flex flex-row">
             <button class="mr-2 btn btn-icon btn-round btn-success edit"><i class="icon-pencil"></i></button>
             <button class="btn btn-icon btn-round btn-danger hapus"><i class="icon-trash"></i></button>
@@ -79,8 +79,10 @@ class penanaman extends CI_Controller
     }
 
     // Add a new item
-    public function add()
+    function lokasi($lokasi)
     {
+        $loc = explode(',', $lokasi);
+        return '<a href="https://www.google.com/maps?q=' . $loc[0] . ',' . $loc[1] . '" target="_blank">Lihat Lokasi</a>';
     }
 
     //Update one item
@@ -109,5 +111,22 @@ class penanaman extends CI_Controller
         $id = $this->input->get('id');
         $hapus = $this->tanaman->delete($id);
         echo json_encode($hapus);
+    }
+
+    public function report()
+    {
+        $tahun = $this->input->get('tahun');
+        $data['tahun'] = $tahun;
+        $this->db->select("p.*,l.nama_pemilik,k.nama_poktan");
+        $this->db->from('penanaman p');
+        $this->db->join('lahan l', 'p.id_lahan = l.id', 'left');
+        $this->db->join('kelompok_tani k', 'k.id = p.id_kelompok_tani', 'left');
+        $this->db->where('YEAR(p.tgl_tanam)', $tahun);
+        $this->db->group_by('p.id');
+        $this->db->order_by('tgl_tanam', 'DESC');
+        $tb = $this->db->get();
+        $data['tabel'] = $tb->result();
+        if ($tb->num_rows() > 1) $this->load->view('laporan', $data);
+        else echo "<script>alert('Tidak Ada Data Penanaman di Tanun " . $tahun . "')</script>";
     }
 }

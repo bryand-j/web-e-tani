@@ -1,4 +1,4 @@
-<div class="main-panel scr" >
+<div class="main-panel scr">
 	<div class="content">
 		<div class="page-inner" style="margin-top: 60px;">
 			<div class="row">
@@ -74,19 +74,19 @@
 	</div>
 </div>
 
-<?php $this->load->view('include/script');?>
+<?php $this->load->view('include/script'); ?>
 <script>
-	let url="<?= base_url()?>/lahan/getData";
-	table = get(url,null);
+	let url = "<?= base_url() ?>/lahan/getData";
+	table = get(url, null);
 
-	$('tbody').on('click', '.edit', function () {
+	$('tbody').on('click', '.edit', function() {
 		let data = table.row($(this).parents('tr')).data();
 		let id = data[0];
-		
+
 		$('#my-modal [name="id"]').val(data[0]);
 		$('#my-modal [name="nama_pemilik"]').val(data[2]);
 		$('#my-modal [name="luas"]').val(data[3]);
-	
+
 		$('#my-modal').modal({
 			keyboard: false,
 			backdrop: 'static',
@@ -94,32 +94,28 @@
 
 	});
 
-	$('tbody').on('click', '.hapus', function () {
+	$('tbody').on('click', '.hapus', function() {
 		let data = table.row($(this).parents('tr')).data();
 		let id = data[0];
-		var url2 = "<?= base_url()?>/lahan/delete";
+		var url2 = "<?= base_url() ?>/lahan/delete";
 		hapus(url2, id);
 		table.ajax.reload();
 
 
 	});
 
-$(document).ready(function () {
-	$('#myform').on('submit',  function(e){  
-	    e.preventDefault();
-	    url1="<?= base_url()?>/lahan/update";
-		let data ={
-			id: $('#my-modal [name="id"]').val(),
-			nama_pemilik: $('#my-modal [name="nama_pemilik"]').val(),
-			luas: $('#my-modal [name="luas"]').val(),
-		};
-		post(url1, data);
-		table.ajax.reload();
-	    $('#myform').trigger("reset");
-    	$('#my-modal').modal('hide');                             
-	            
-	  });
-});
+	$(document).ready(function() {
+		$('#myform').on('submit', function(e) {
+			e.preventDefault();
+			url1 = "<?= base_url() ?>/lahan/update";
+			let data = new FormData(this);
+			post(url1, data);
+			table.ajax.reload();
+			$('#myform').trigger("reset");
+			$('#my-modal').modal('hide');
+
+		});
+	});
 </script>
 
 </body>

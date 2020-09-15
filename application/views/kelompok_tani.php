@@ -135,15 +135,7 @@
 		$('#myform').on('submit', function(e) {
 			e.preventDefault();
 			url1 = "<?= base_url() ?>/kelompok_tani/update";
-			let data = {
-				id: $('#my-modal [name="id"]').val(),
-				no_sk_poktan: $('#my-modal [name="no_sk_poktan"]').val(),
-				nama_poktan: $('#my-modal [name="nama_poktan"]').val(),
-				tanggal_berdiri: $('#my-modal [name="tanggal_berdiri"]').val(),
-				jumlah_anggota: $('#my-modal [name="jumlah_anggota"]').val(),
-				status: $('#my-modal [name="status"]').val(),
-
-			};
+			let data = new FormData(this);
 			post(url1, data);
 			table.ajax.reload();
 			$('#myform').trigger("reset");

@@ -1,4 +1,4 @@
-<div class="main-panel scr" >
+<div class="main-panel scr">
 	<div class="content">
 		<div class="page-inner" style="margin-top: 60px;">
 			<div class="row">
@@ -69,9 +69,7 @@
 						<input type="hidden" name="id" value="">
 						<div class="form-group col-md-12">
 							<label>Nama Penyuluh</label>
-							
-								<input  type="text" class="form-control kmk" name="nama_penyuluh" placeholder="nama_penyuluh" aria-label="nama_penyuluh">
-						
+							<input type="text" class="form-control kmk" name="nama_penyuluh" placeholder="nama_penyuluh" aria-label="nama_penyuluh">
 						</div>
 						<div class="form-group col-md-12">
 							<label>Golongan</label>
@@ -112,15 +110,15 @@
 	</div>
 </div>
 
-<?php $this->load->view('include/script');?>
+<?php $this->load->view('include/script'); ?>
 <script>
-	let url="<?= base_url()?>/penyuluh/getData";
-	table = get(url,null);
+	let url = "<?= base_url() ?>/penyuluh/getData";
+	table = get(url, null);
 
-	$('tbody').on('click', '.edit', function () {
+	$('tbody').on('click', '.edit', function() {
 		let data = table.row($(this).parents('tr')).data();
 		let id = data[0];
-		
+
 		$('#my-modal [name="id"]').val(data[0]);
 		$('#my-modal [name="nama_penyuluh"]').val(data[2]);
 		$('#my-modal [name="golongan"]').val(data[3]);
@@ -130,7 +128,7 @@
 		$('#my-modal [name="agama"]').val(data[7]);
 		$('#my-modal [name="keterangan"]').val(data[8]);
 		$('#my-modal [name="status"]').val(data[9]);
-	
+
 		$('#my-modal').modal({
 			keyboard: false,
 			backdrop: 'static',
@@ -139,37 +137,27 @@
 
 	});
 
-	$('tbody').on('click', '.hapus', function () {
+	$('tbody').on('click', '.hapus', function() {
 		let data = table.row($(this).parents('tr')).data();
 		let id = data[0];
-		var url2 = "<?= base_url()?>/penyuluh/delete";
+		var url2 = "<?= base_url() ?>/penyuluh/delete";
 		hapus(url2, id);
 		table.ajax.reload();
 
 
 	});
 
-	$(document).ready(function () {
-	$('#myform').on('submit',  function(e){  
-	    e.preventDefault();
-	    url1="<?= base_url()?>/penyuluh/update";
-		let data ={
-			id: $('#my-modal [name="id"]').val(),
-			nama_penyuluh: $('#my-modal [name="nama_penyuluh"]').val(),
-			golongan: $('#my-modal [name="golongan"]').val(),
-			tempat_lahir: $('#my-modal [name="tempat_lahir"]').val(),
-			tgl_lahir: $('#my-modal [name="tgl_lahir"]').val(),
-			jenis_kelamin: $('#my-modal [name="jenis_kelamin"]').val(),
-			agama: $('#my-modal [name="agama"]').val(),
-			keterangan: $('#my-modal [name="keterangan"]').val(),
-			status: $('#my-modal [name="status"]').val(),
-		};
-		post(url1, data);
-		table.ajax.reload();
-	    $('#myform').trigger("reset");
-    	$('#my-modal').modal('hide');                             
-	            
-	  });
+	$(document).ready(function() {
+		$('#myform').on('submit', function(e) {
+			e.preventDefault();
+			url1 = "<?= base_url() ?>/penyuluh/update";
+			let data = new FormData(this);
+			post(url1, data);
+			table.ajax.reload();
+			$('#myform').trigger("reset");
+			$('#my-modal').modal('hide');
+
+		});
 
 
 	});
