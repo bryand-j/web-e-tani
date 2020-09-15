@@ -1,10 +1,9 @@
-
 <div class="main-header">
 	<!-- Logo Header -->
 	<div class="logo-header" data-background-color="green">
-		
+
 		<a href="#" class="logo">
-			<img src="<?=base_url()?>assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
+			<img src="<?= base_url() ?>assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
 		</a>
 		<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon">
@@ -22,74 +21,33 @@
 
 	<!-- Navbar Header -->
 	<nav class="navbar navbar-header navbar-expand-lg" data-background-color="green">
-		
+
 		<div class="container-fluid">
-		
+
 			<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 
-				<li class="nav-item dropdown hidden-caret">
-					<a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
-						<i class="icon-layers"></i>
-					</a>
-					<div class="dropdown-menu quick-actions quick-actions-info animated fadeIn">
-						<div class="quick-actions-header">
-							<span class="title mb-1">Quick Actions</span>
-							<span class="subtitle op-8">Shortcuts</span>
-						</div>
-						<div class="quick-actions-scroll scrollbar-outer">
-							<div class="quick-actions-items">
-								<div class="row m-0">
-									<a class="col-6 col-md-4 p-0" href="<?=base_url()?>operator/jadwal">
-										<div class="quick-actions-item">
-											<div class="avatar-item bg-danger rounded-circle">
-												<i class="flaticon-calendar"></i>
-											</div>
-											<span class="text">Print Jadwal</span>
-										</div>
-									</a>
-									<a class="col-6 col-md-4 p-0" href="#" data-toggle="modal" data-target="#printModal">
-										<div class="quick-actions-item">
-											<div class="avatar-item bg-warning rounded-circle">
-												<i class="flaticon-file-1"></i>
-											</div>
-											<span class="text">Daftar Nilai</span>
-										</div>
-									</a>
-									<a class="col-6 col-md-4 p-0" href="?=base_url()?>operator/absensi">
-										<div class="quick-actions-item">
-											<div class="avatar-item bg-info rounded-circle">
-												<i class="flaticon-list"></i>
-											</div>
-											<span class="text">Report Absensi</span>
-										</div>
-									</a>
-									
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				
+
+
 				<li class="nav-item dropdown hidden-caret">
 					<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 						<div class="avatar-sm">
-							<img src="<?=base_url()?>/assets/images/user.jpg" alt="user" class="FotoUser avatar-img rounded-circle">
+							<img src="<?= base_url() ?>/assets/images/user.jpg" alt="user" class="FotoUser avatar-img rounded-circle">
 						</div>
 					</a>
 					<ul class="dropdown-menu dropdown-user animated fadeIn">
 						<div class="dropdown-user-scroll scrollbar-outer">
 							<li>
 								<div class="user-box">
-									<div class="avatar-lg"><img src="<?=base_url()?>/assets/images/user.jpg" alt="user" class="avatar-img rounded FotoUser"></div>
+									<div class="avatar-lg"><img src="<?= base_url() ?>/assets/images/user.jpg" alt="user" class="avatar-img rounded FotoUser"></div>
 									<div class="u-text">
-										<h4 class="nUser">Nama User</h4>
-										<p class="text-muted">Admin</p><a href="<?=base_url()?>profile" class="btn btn-xs btn-secondary btn-sm">Profile</a>
+										<h4 class="nUser"><?= $this->session->userdata('nama') ?></h4>
+										<p class="text-muted">Admin</p>
 									</div>
 								</div>
 							</li>
 							<li>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="<?=base_url()?>login/logout">Logout</a>
+								<a class="dropdown-item" href="<?= base_url() ?>login/out">Logout</a>
 							</li>
 						</div>
 					</ul>
@@ -112,7 +70,7 @@
 			<form id="PrintForm">
 				<div class="modal-body">
 					<div class="row">
-				
+
 						<div class="form-group col-md-12">
 							<label>Mahasiswa</label>
 							<select name="nimPrint" class="form-control selectNim" style="width:100%;">
@@ -129,5 +87,3 @@
 		</div>
 	</div>
 </div>
-
-

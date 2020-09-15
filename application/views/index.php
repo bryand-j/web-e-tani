@@ -8,7 +8,7 @@
 						<h5 class="text-white op-7 mb-2">Aplikasi E-Reporting</h5>
 					</div>
 					<div class="ml-md-auto py-2 py-md-0">
-						
+
 					</div>
 				</div>
 			</div>
@@ -27,7 +27,7 @@
 								<div class="col col-stats ml-3 ml-sm-0">
 									<div class="numbers">
 										<p class="card-category">Penyuluh</p>
-										<h4 class="card-title">20</h4>
+										<h4 class="card-title"><?= $penyuluh ?></h4>
 									</div>
 								</div>
 							</div>
@@ -46,7 +46,7 @@
 								<div class="col col-stats ml-3 ml-sm-0">
 									<div class="numbers">
 										<p class="card-category">Kel-Tani</p>
-										<h4 class="card-title">30</h4>
+										<h4 class="card-title"><?= $poktan ?></h4>
 									</div>
 								</div>
 							</div>
@@ -65,7 +65,7 @@
 								<div class="col col-stats ml-3 ml-sm-0">
 									<div class="numbers">
 										<p class="card-category">Lahan</p>
-										<h4 class="card-title">20</h4>
+										<h4 class="card-title"><?= $lahan ?></h4>
 									</div>
 								</div>
 							</div>
@@ -84,16 +84,16 @@
 								<div class="col col-stats ml-3 ml-sm-0">
 									<div class="numbers">
 										<p class="card-category">User</p>
-										<h4 class="card-title">10</h4>
+										<h4 class="card-title"><?= $user ?></h4>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-	
+
 			</div>
-			
+
 		</div>
 	</div>
 </div>

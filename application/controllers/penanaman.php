@@ -9,6 +9,10 @@ class penanaman extends CI_Controller
         parent::__construct();
         //Load Dependencies  $this->load->model('M_index','i');
         $this->load->model('M_penanaman', 'tanaman');
+        if (empty($this->session->userdata('id'))) {
+
+            redirect('login', 'refresh');
+        }
     }
 
     // List all your items
@@ -20,23 +24,6 @@ class penanaman extends CI_Controller
         $this->load->view('include/sidebar');
         $this->load->view('penanaman');
     }
-
-    // id
-    // id_kelompok_tani
-    // id_lahan
-    // jenis_tanaman
-    // nama_tanaman
-    // tgl_tanam
-    // perkiraan_tgl_panen
-    // jumlah_tanam
-    // jumlah_panen
-    // status_penanaman
-    // realisasi_panen
-    // kebutuhan
-    // estimasi_biaya
-    // realisasi_kebutuhan
-    // foto
-    // lokasi
     public function getData()
     {
         $data = $this->tanaman->getData()->result();

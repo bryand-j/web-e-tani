@@ -9,6 +9,10 @@ class penyuluh extends CI_Controller
         parent::__construct();
         //Load Dependencies  
         $this->load->model('M_penyuluh');
+        if (empty($this->session->userdata('id'))) {
+
+            redirect('login', 'refresh');
+        }
     }
 
     // List all your items

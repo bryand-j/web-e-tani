@@ -8,18 +8,27 @@ class index extends CI_Controller
     {
         parent::__construct();
         //Load Dependencies  $this->load->model('M_index','i');
+        if (empty($this->session->userdata('id'))) {
 
-
+            redirect('login', 'refresh');
+        }
     }
 
     // List all your itemsa
     public function index()
     {
+        $data = [
+            "penyuluh"  => $this->db->get('penyuluh')->num_rows(),
+            "lahan"  => $this->db->get('lahan')->num_rows(),
+            "poktan"  => $this->db->get('kelompok_tani')->num_rows(),
+            "user"  => $this->db->get('user')->num_rows(),
+
+        ];
 
         $this->load->view('include/head');
         $this->load->view('include/header');
         $this->load->view('include/sidebar');
-        $this->load->view('index');
+        $this->load->view('index', $data);
     }
 
     // Add a new item

@@ -9,6 +9,10 @@ class user extends CI_Controller
         parent::__construct();
         //Load Dependencies  
         $this->load->model('M_user');
+        if (empty($this->session->userdata('id'))) {
+
+            redirect('login', 'refresh');
+        }
     }
 
     // List all your itemsa
