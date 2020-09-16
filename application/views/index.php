@@ -21,7 +21,7 @@
 							<div class="row align-items-center">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-primary bubble-shadow-small">
-										<i class="flaticon-users"></i>
+										<i class="fas fa-user-tie"></i>
 									</div>
 								</div>
 								<div class="col col-stats ml-3 ml-sm-0">
@@ -40,7 +40,7 @@
 							<div class="row align-items-center">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-info bubble-shadow-small">
-										<i class="flaticon-diagram"></i>
+										<i class="fas fa-users"></i>
 									</div>
 								</div>
 								<div class="col col-stats ml-3 ml-sm-0">
@@ -59,7 +59,7 @@
 							<div class="row align-items-center">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-success bubble-shadow-small">
-										<i class="flaticon-profile-1"></i>
+										<i class="fas fa-tape"></i>
 									</div>
 								</div>
 								<div class="col col-stats ml-3 ml-sm-0">
@@ -78,7 +78,7 @@
 							<div class="row align-items-center">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-secondary bubble-shadow-small">
-										<i class="flaticon-interface-2"></i>
+										<i class="fas fa-user-alt"></i>
 									</div>
 								</div>
 								<div class="col col-stats ml-3 ml-sm-0">

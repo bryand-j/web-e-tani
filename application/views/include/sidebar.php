@@ -18,31 +18,31 @@
 				</li>
 				<li class="nav-item ">
 					<a href="<?= base_url() ?>lahan">
-						<i class="fas fa-list-alt"></i>
+						<i class="fas fa-tape"></i>
 						<p>Lahan</p>
 					</a>
 				</li>
 				<li class="nav-item ">
 					<a href="<?= base_url() ?>kelompok_tani">
-						<i class="far fa-calendar-alt"></i>
+						<i class="fas fa-users"></i>
 						<p>Kelompok Tani</p>
 					</a>
 				</li>
 				<li class="nav-item ">
 					<a href="<?= base_url() ?>penyuluh">
-						<i class="far fa-calendar-check"></i>
+						<i class="fas fa-user-tie"></i>
 						<p>Penyuluh</p>
 					</a>
 				</li>
 				<li class="nav-item ">
 					<a href="<?= base_url() ?>penanaman">
-						<i class="far fa-calendar-check"></i>
+						<i class="fas fa-seedling"></i>
 						<p>Penanaman</p>
 					</a>
 				</li>
 				<li class="nav-item ">
 					<a href="<?= base_url() ?>user">
-						<i class="fas fa-user-graduate"></i>
+						<i class="fas fa-user-alt"></i>
 						<p>User/penyluh-prov</p>
 					</a>
 				</li>
