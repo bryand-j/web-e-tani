@@ -48,13 +48,10 @@ class penanaman extends REST_Controller
 				'nama_tanaman' => $this->post('nama_tanaman'),
 				'tgl_tanam' => $this->post('tgl_tanam'),
 				'perkiraan_tgl_panen' => $this->post('perkiraan_panen'),
-				'jumlah_tanam' => $this->post('jumlah'),
-				'jumlah_panen' => $this->post('jumlah_panen'),
+				'jumlah_tanam' => $this->post('jumlah').' '.$this->post('satuan') ,
 				'status_penanaman' => $this->post('status_penanaman'),
-				'realisasi_panen' => $this->post('realisasi_panen'),
 				'kebutuhan' => $this->post('kebutuhan'),
 				'estimasi_biaya' => $this->post('estimasi_biaya'),
-				'realisasi_kebutuhan' => $this->post('realisasi_kebutuhan'),
 				'lokasi' => $this->post('lokasi'),
 				'foto' => $_FILES['foto']['name'],
 			];
@@ -66,8 +63,6 @@ class penanaman extends REST_Controller
 			$this->form_validation->set_rules('tgl_tanam', 'Tanggal Tanam', 'required');
 			$this->form_validation->set_rules('perkiraan_tgl_panen', 'Perkiraan Tanggal Panen', 'required');
 			$this->form_validation->set_rules('jumlah_tanam', 'Jumlah Tanam', 'required');
-			$this->form_validation->set_rules('kebutuhan', 'Kebutuhan', 'required');
-			$this->form_validation->set_rules('estimasi_biaya', 'Estimasi Biaya', 'required');
 			$this->form_validation->set_rules('lokasi', 'Lokasi', 'required');
 
 			$this->form_validation->set_message('required', '{field} Tidak Boleh Kosong');

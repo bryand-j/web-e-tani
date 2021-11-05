@@ -17,6 +17,7 @@
 										<th>No</th>
 										<th>Nama Pemilik</th>
 										<th>Luas</th>
+										<th>Satuan</th>
 										<th>aksi</th>
 									</tr>
 								</thead>
@@ -26,6 +27,7 @@
 										<th>No</th>
 										<th>Nama Pemilik</th>
 										<th>Luas</th>
+										<th>Satuan</th>
 										<th>aksi</th>
 									</tr>
 								</tfoot>
@@ -59,10 +61,19 @@
 							<label>Nama Pemilik</label>
 							<input type="text" class="form-control" name="nama_pemilik" placeholder="nama_pemilik">
 						</div>
-						<div class="form-group col-md-12">
+						<div class="form-group col-md-7">
 							<label>Luas</label>
 							<input type="text" class="form-control" name="luas" placeholder="Masukan Luas">
 						</div>
+						<div class="form-group col-md-5">
+							<label>Satuan</label>
+							<select name="satuan" class="form-control">
+								<option value="Hektar">Hektar</option>
+								<option value="Are">Are</option>
+								<option value='M"'>M"</option>
+							</select>
+						</div>
+
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -86,6 +97,7 @@
 		$('#my-modal [name="id"]').val(data[0]);
 		$('#my-modal [name="nama_pemilik"]').val(data[2]);
 		$('#my-modal [name="luas"]').val(data[3]);
+		$('#my-modal [name="satuan"]').val(data[4]);
 
 		$('#my-modal').modal({
 			keyboard: false,

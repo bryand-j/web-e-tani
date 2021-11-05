@@ -32,6 +32,7 @@ class penanaman extends CI_Controller
         foreach ($data as $key) {
             $row = array();
             $no++;
+            $est = ((int) $key->estimasi_biaya * 1 + 0);
             $row[] = $key->id;
             $row[] = $no;
             $row[] = $key->nama_poktan;
@@ -41,12 +42,12 @@ class penanaman extends CI_Controller
             $row[] = $key->tgl_tanam;
             $row[] = $key->perkiraan_tgl_panen;
             $row[] = $key->jumlah_tanam;
-            $row[] = $key->jumlah_panen;
+            // $row[] = $key->jumlah_panen;
             $row[] = $key->status_penanaman;
-            $row[] = $key->realisasi_panen;
+            // $row[] = $key->realisasi_panen;
             $row[] = $key->kebutuhan;
-            $row[] = $key->estimasi_biaya;
-            $row[] = $key->realisasi_kebutuhan;
+            $row[] = number_format($est, 2, ',', '.');
+            // $row[] = $key->realisasi_kebutuhan;
             $row[] = '<img height="100" width="100" src="' . base_url() . 'assets/doc/' . $key->foto . '" >';
             $row[] = $this->lokasi($key->lokasi);
             $row[] = '<div class="d-flex flex-row">
@@ -79,8 +80,8 @@ class penanaman extends CI_Controller
 
             'tgl_tanam' => $this->input->post('tgl_tanam'),
             'perkiraan_tgl_panen' => $this->input->post('perkiraan_tgl_panen'),
-            'jumlah_tanam' => $this->input->post('jumlah_tanam'),
-            'jumlah_panen' => $this->input->post('jumlah_panen'),
+            'jumlah_tanam' => $this->input->post('jumlah_tanam') . ' ' . $this->input->post('satuan'),
+
             'status_penanaman' => $this->input->post('status_penanaman'),
             'realisasi_panen' => $this->input->post('realisasi_panen'),
             'kebutuhan' => $this->input->post('kebutuhan'),

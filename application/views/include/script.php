@@ -67,7 +67,7 @@
         $(function() {
 
             var table, current = location.pathname.split("/").slice(-1)[0].replace(/^\/|\/$/g, '');
-
+            //alert(location.pathname.split("/").slice(1)[0])
             console.log(current);
 
             $('.nav a[href~="' + location.href + '"]').parent('li').addClass('active');

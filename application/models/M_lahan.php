@@ -12,7 +12,7 @@ class M_lahan extends CI_Model
 		foreach ($data as $key) {
 			$row = array();
 			$row['id'] = $key->id;
-			$row['name'] = $key->nama_pemilik . ' - ' . $key->luas;
+			$row['name'] = $key->nama_pemilik . ' - ' . $key->luas . ' ' . $key->satuan;
 			$result[] = $row;
 		}
 		return $result;

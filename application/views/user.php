@@ -74,7 +74,25 @@
 						</div>
 						<div class="form-group col-md-12">
 							<label>Golongan</label>
-							<input type="text" class="form-control txt" name="golongan" placeholder="Masukan Golongan">
+							<select class="form-control txt" name="golongan">
+								<option value="I A">I A</option>
+								<option value="I B">I B</option>
+								<option value="I C">i C</option>
+								<option value="I D">I D</option>
+								<option value="II A">II A</option>
+								<option value="II B">II B</option>
+								<option value="II C">II C</option>
+								<option value="II D">II D</option>
+								<option value="III A">III A</option>
+								<option value="III B">III B</option>
+								<option value="III C">III C</option>
+								<option value="III D">III D</option>
+								<option value="IV A"> IV A</option>
+								<option value="IV B">IV B</option>
+								<option value="IV C">IV C</option>
+								<option value="IV D">IV D</option>
+								<option value="IV E">IV E</option>
+							</select>
 						</div>
 						<div class="form-group col-md-12">
 							<label>Tempat Lahir</label>
@@ -86,11 +104,23 @@
 						</div>
 						<div class="form-group col-md-12">
 							<label>Agama</label>
-							<input type="text" class="form-control txt" name="agama" placeholder="Masukan Agama">
+							<select name="agama" class="form-control txt">
+								<option selected disabled>Pilih Agama</option>
+								<option value="Islam">Islam</option>
+								<option value="Kristen">Kristen</option>
+								<option value="Katolik">Katolik</option>
+								<option value="Hindu">Hindu</option>
+								<option value="Budha">Budha</option>
+							</select>
 						</div>
 						<div class="form-group col-md-12">
 							<label>Jenis Kelamin</label>
-							<input type="text" class="form-control txt" name="jenis_kelamin" placeholder="Masukan Jenis Kelamin">
+							<select name="jenis_kelamin" class="form-control txt">
+								<option selected disabled>Jenis Kelamin</option>
+								<option value="Pria">Pria</option>
+								<option value="Wanita">Wanita</option>
+							</select>
+							<!-- <input type="text" class="form-control txt" name="jenis_kelamin" placeholder="Masukan Jenis Kelamin"> -->
 						</div>
 						<div class="form-group col-md-12">
 							<label>Password</label>
@@ -127,11 +157,11 @@
 
 		$('#my-modal [name="id"]').val(data[0]);
 		$('#my-modal [name="nama"]').val(data[2]);
-		$('#my-modal [name="golongan"]').val(data[3]);
+		$('#my-modal [name="golongan"]').val(data[3]).trigger('change');
 		$('#my-modal [name="tempat_lahir"]').val(data[4]);
 		$('#my-modal [name="tgl_lahir"]').val(data[5]);
-		$('#my-modal [name="agama"]').val(data[6]);
-		$('#my-modal [name="jenis_kelamin"]').val(data[7]);
+		$('#my-modal [name="agama"]').val(data[6]).trigger('change');
+		$('#my-modal [name="jenis_kelamin"]').val(data[7]).trigger('change');
 		$('#my-modal [name="password"]').val(data[8]);
 
 		$('#my-modal').modal({

@@ -18,7 +18,9 @@
 <body>
     <table width="100%">
         <tr>
-            <th>ini Logo</th>
+            <th>
+                <img width="100" src="<?= base_url() ?>assets/logoLp.jpg">
+            </th>
             <th>
                 <h2>
                     DINAS PERTANIAN PROVINSI NUSA TENGGARA TIMUR </br>
@@ -40,23 +42,22 @@
             <th>Status Penanaman</th>
             <th>Kebutuhan</th>
             <th>Estimasi Biaya</th>
-            <th>Realisasi Kebutuhan</th>
             <th>Perkiraan Tanggal Panen</th>
         </tr>
         <?php $no = 1;
         foreach ($tabel as $row) : ?>
+            <?php $est = ((int) $row->estimasi_biaya * 1 + 0); ?>
             <tr>
-                <td><?= $no++ ?></td>
-                <td><?= $row->tgl_tanam ?></td>
-                <td><?= $row->nama_tanaman ?></td>
-                <td><?= $row->nama_poktan ?></td>
-                <td><?= $row->nama_pemilik ?></td>
-                <td><?= $row->jumlah_tanam ?></td>
-                <td><?= $row->status_penanaman ?></td>
-                <td><?= $row->kebutuhan ?></td>
-                <td><?= $row->estimasi_biaya ?></td>
-                <td><?= $row->realisasi_kebutuhan ?></td>
-                <td><?= $row->perkiraan_tgl_panen ?></td>
+                <td style="text-align: center;"><?= $no++ ?></td>
+                <td style="text-align: center;"><?= $row->tgl_tanam ?></td>
+                <td style="text-align: center;"><?= $row->nama_tanaman ?></td>
+                <td style="text-align: center;"><?= $row->nama_poktan ?></td>
+                <td style="text-align: center;"><?= $row->nama_pemilik ?></td>
+                <td style="text-align: center;"><?= $row->jumlah_tanam ?></td>
+                <td style="text-align: center;"><?= $row->status_penanaman ?></td>
+                <td style="text-align: left;"><?= $row->kebutuhan ?></td>
+                <td style="text-align: left;"><?= "Rp. " . number_format($est, 2, ',', '.'); ?></td>
+                <td style="text-align: center;"><?= $row->perkiraan_tgl_panen ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

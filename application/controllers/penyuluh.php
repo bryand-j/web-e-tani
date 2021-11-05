@@ -9,6 +9,8 @@ class penyuluh extends CI_Controller
         parent::__construct();
         //Load Dependencies  
         $this->load->model('M_penyuluh');
+        $this->load->helper('comp');
+
         if (empty($this->session->userdata('id'))) {
 
             redirect('login', 'refresh');
@@ -41,7 +43,7 @@ class penyuluh extends CI_Controller
             $row[] = $key->jenis_kelamin;
             $row[] = $key->agama;
             $row[] = $key->keterangan;
-            $row[] = $key->status;
+            $row[] = compStatus($key->status, $key->alasan);
             $row[] = '<div class="d-flex flex-row">
             <button class="mr-2 btn btn-icon btn-round btn-success edit"><i class="icon-pencil"></i></button>
             <button class="btn btn-icon btn-round btn-danger hapus"><i class="icon-trash"></i></button>
@@ -70,6 +72,7 @@ class penyuluh extends CI_Controller
             "agama" => $this->input->post('agama'),
             "keterangan" => $this->input->post('keterangan'),
             "status" => $this->input->post('status'),
+            "alasan" => $this->input->post('alasan'),
         ];
         $id = $this->input->post('id');
         $edit = $this->M_penyuluh->editPenyuluh($data, $id);

@@ -36,6 +36,7 @@ class lahan extends CI_Controller
             $row[] = $no;
             $row[] = $key->nama_pemilik;
             $row[] = $key->luas;
+            $row[] = $key->satuan;
             $row[] = '<div class="d-flex flex-row">
             <button class="mr-2 btn btn-icon btn-round btn-success edit"><i class="icon-pencil"></i></button>
             <button class="btn btn-icon btn-round btn-danger hapus"><i class="icon-trash"></i></button>
@@ -63,6 +64,7 @@ class lahan extends CI_Controller
         $data = [
             "nama_pemilik" => $this->input->post('nama_pemilik'),
             "luas" => $this->input->post('luas'),
+            "satuan" => $this->input->post('satuan'),
         ];
         $id = $this->input->post('id');
         $edit = $this->M_lahan->editLahan($data, $id);

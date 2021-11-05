@@ -8,8 +8,8 @@
 	<link rel="icon" href="<?= base_url() ?>assets/img/hill.png" type="image/x-icon" />
 	<!-- Add to home screen for Windows-->
 	<meta name="msapplication-TileImage" content="<?= base_url() ?>assets/hill.png" />
-	<meta name="msapplication-TileColor" content="#1269db" />
-	<meta name="theme-color" content="#1269db">
+	<meta name="msapplication-TileColor" content="#28a745" />
+	<meta name="theme-color" content="#28a745">
 
 	<meta name="description" content="APP KHS ELEKTRO" />
 	<link rel="apple-touch-icon" href="<?= base_url() ?>assets/hill.png" />
